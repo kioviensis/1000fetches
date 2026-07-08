@@ -104,17 +104,26 @@
           "agents",
           "router",
           "route eval",
+          "route evals",
+          "router evals",
           "adapter",
           "check:agents",
           "check:changed",
           "local skill",
           "sync harness",
           "audit harness",
+          "repair harness",
+          "refresh harness",
           "improve harness",
-          "create harness"
+          "create harness",
+          "harness coverage"
         ],
         "paths": ["AGENTS.md", "CLAUDE.md", ".agents/**", "docs/ai-agents/**"],
-        "regex": ["\\b(sync|audit|improve|create)\\s+.*harness\\b"]
+        "regex": [
+          "\\b(sync|audit|improve|create|repair|refresh|update)\\b.*\\bharness\\b",
+          "\\bharness\\b.*\\b(sync|audit|improve|create|repair|refresh|update|coverage|evals?|router|adapters?|docs?)\\b",
+          "\\bstale\\b.*\\b(router|route)\\s+evals?\\b"
+        ]
       },
       "mandatory": [
         "AGENTS.md",

@@ -44,6 +44,24 @@ export function runSelfTests(rules: RulesData, evals: EvalsData): void {
     'docs-update',
     'docs intent beats retry domain words'
   )
+  assertRoute(
+    rules,
+    'create a harness in a disposable worktree from this repo',
+    'harness-maintenance',
+    'harness create intent beats generic create implementation intent'
+  )
+  assertRoute(
+    rules,
+    'repair stale router evals in this existing harness',
+    'harness-maintenance',
+    'stale router eval repair routes to harness maintenance'
+  )
+  assertRoute(
+    rules,
+    'deepen harness coverage for the API surface in this valid harness',
+    'harness-maintenance',
+    'harness improvement intent routes to harness maintenance'
+  )
 
   assertRecommendation(
     [{ path: 'src/request/retry/retry.ts', status: 'modified' }],

@@ -6,7 +6,11 @@ Without a custom serializer, objects and arrays are JSON stringified and get `co
 await api.post('/users', { name: 'Ada' })
 ```
 
-Native body values such as `FormData`, `URLSearchParams`, `Blob`, `ArrayBuffer`, `ArrayBufferView`, strings, and `ReadableStream` are passed as fetch bodies. When sending a `ReadableStream` in Node/native fetch contexts that require it, set `fetchOptions: { duplex: 'half' }`.
+Native body values such as `FormData`, `URLSearchParams`, `Blob`,
+`ArrayBuffer`, `ArrayBufferView`, strings, and `ReadableStream` are passed as
+fetch bodies. Body requests set `duplex: 'half'` automatically for native fetch
+contexts that require it. `ReadableStream` bodies are one-shot and are not
+replayed by built-in retries.
 
 Use `serializeBody` when an API needs a custom wire format. A narrow serializer narrows accepted bodies for write methods.
 

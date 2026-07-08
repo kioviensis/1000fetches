@@ -31,8 +31,9 @@ Adapter: `CLAUDE.md` is preserved as a thin adapter and points to
 
 Known overlap risks: refactor versus bug fix when prompts mention errors,
 test coverage versus implementation when prompts say "add tests", docs versus
-domain words such as retry or middleware, and harness sync versus generic
-router/eval wording.
+domain words such as retry or middleware, harness sync versus generic
+router/eval wording, and harness lifecycle verbs such as create, repair, or
+deepen versus ordinary library implementation verbs.
 
 Required validation categories:
 

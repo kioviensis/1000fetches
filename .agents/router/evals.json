@@ -147,6 +147,106 @@
       "expectedOverlays": []
     },
     {
+      "id": "audit-harness-standard",
+      "prompt": "Audit this harness against our standard",
+      "expectedRoute": "harness-maintenance",
+      "expectedSkill": null,
+      "expectedMandatory": [
+        "AGENTS.md",
+        "guide:agent-workflow",
+        "guide:harness-readme",
+        "guide:router-readme"
+      ],
+      "expectedConditional": [
+        "global:audit-agent-harness",
+        "global:create-agent-harness",
+        "global:sync-agent-harness",
+        "global:improve-agent-harness"
+      ],
+      "expectedNotSelected": [
+        "skill:implement-library-change",
+        "skill:fix-library-regression",
+        "skill:refactor-library-surface",
+        "skill:cover-library-with-tests"
+      ],
+      "expectedOverlays": []
+    },
+    {
+      "id": "create-harness-disposable",
+      "prompt": "Create a harness in a disposable worktree from this repo",
+      "expectedRoute": "harness-maintenance",
+      "expectedSkill": null,
+      "expectedMandatory": [
+        "AGENTS.md",
+        "guide:agent-workflow",
+        "guide:harness-readme",
+        "guide:router-readme"
+      ],
+      "expectedConditional": [
+        "global:audit-agent-harness",
+        "global:create-agent-harness",
+        "global:sync-agent-harness",
+        "global:improve-agent-harness"
+      ],
+      "expectedNotSelected": [
+        "skill:implement-library-change",
+        "skill:fix-library-regression",
+        "skill:refactor-library-surface",
+        "skill:cover-library-with-tests"
+      ],
+      "expectedOverlays": []
+    },
+    {
+      "id": "repair-stale-router-evals",
+      "prompt": "Repair stale router evals in this existing harness",
+      "expectedRoute": "harness-maintenance",
+      "expectedSkill": null,
+      "expectedMandatory": [
+        "AGENTS.md",
+        "guide:agent-workflow",
+        "guide:harness-readme",
+        "guide:router-readme"
+      ],
+      "expectedConditional": [
+        "global:audit-agent-harness",
+        "global:create-agent-harness",
+        "global:sync-agent-harness",
+        "global:improve-agent-harness"
+      ],
+      "expectedNotSelected": [
+        "skill:implement-library-change",
+        "skill:fix-library-regression",
+        "skill:refactor-library-surface",
+        "skill:cover-library-with-tests"
+      ],
+      "expectedOverlays": []
+    },
+    {
+      "id": "deepen-harness-coverage",
+      "prompt": "Deepen harness coverage for the API surface in this valid harness",
+      "expectedRoute": "harness-maintenance",
+      "expectedSkill": null,
+      "expectedMandatory": [
+        "AGENTS.md",
+        "guide:agent-workflow",
+        "guide:harness-readme",
+        "guide:router-readme"
+      ],
+      "expectedConditional": [
+        "global:audit-agent-harness",
+        "global:create-agent-harness",
+        "global:sync-agent-harness",
+        "global:improve-agent-harness"
+      ],
+      "expectedNotSelected": [
+        "skill:implement-library-change",
+        "skill:fix-library-regression",
+        "skill:refactor-library-surface",
+        "skill:cover-library-with-tests"
+      ],
+      "expectedOverlays": []
+    },
+    {
       "id": "ambiguous-fallback",
       "prompt": "What should I look at?",
       "expectedRoute": "fallback",

@@ -15,11 +15,23 @@ const overlayDetectors: Array<[string, RegExp]> = [
   ],
 ]
 
-const taskModeDetectors: Array<[string, RegExp]> = [
+const harnessLifecycleVerbs = 'sync|audit|improve|create|repair|refresh|update'
+const harnessStaticSignals =
+  /\b(agent harness|check:agents|check:changed|local skill|router evals?|route evals?|adapter guidance)\b/
+const staleRouterEvalSignal = /\bstale\b.*\b(router|route)\s+evals?\b/
+
+const harnessTaskModePattern = new RegExp(
   [
-    'harness',
-    /\b(agent harness|check:agents|check:changed|local skill|router eval|sync harness|audit harness|improve harness|create harness|adapter guidance)\b/i,
-  ],
+    harnessStaticSignals.source,
+    `\\b(${harnessLifecycleVerbs})\\b.*\\bharness\\b`,
+    `\\bharness\\b.*\\b(${harnessLifecycleVerbs}|coverage|evals?|router|adapters?|docs?)\\b`,
+    staleRouterEvalSignal.source,
+  ].join('|'),
+  'i'
+)
+
+const taskModeDetectors: Array<[string, RegExp]> = [
+  ['harness', harnessTaskModePattern],
   [
     'tests',
     /\b(add|write|cover|improve)\b.*\btests?\b|\b(test coverage|typecheck|expect-type|regression test)\b/i,

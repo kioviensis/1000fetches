@@ -371,7 +371,12 @@ await api.post('/transactions', transactionInput).contract({
 })
 ```
 
-Success status maps accept only `2xx` and `3xx` status keys. Error status maps accept only `4xx` and `5xx` status keys. Success map status keys control which non-2xx responses resolve; error contracts validate failed responses before `HttpError` is thrown.
+Status map keys must be concrete HTTP status codes or `default`. Success
+status maps accept concrete `2xx` and `3xx` status codes, such as `201` or
+`304`. Error status maps accept concrete `4xx` and `5xx` status codes, such as
+`400` or `409`. Success map status keys control which non-2xx responses
+resolve; error contracts validate failed responses before `HttpError` is
+thrown.
 
 Error branches validate failed HTTP responses before throwing `HttpError` with the validated error data. If an error response fails its own contract, 1000fetches throws `ContractValidationError` with the status, method, URL, response, schema, and original data.
 

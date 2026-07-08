@@ -29,7 +29,10 @@ await api.post('/transactions', input).contract({
 })
 ```
 
-Success status maps accept `2xx` and `3xx` keys. Error status maps accept `4xx` and `5xx` keys.
+Status map keys must be concrete HTTP status codes or `default`. Success
+status maps accept concrete `2xx` and `3xx` status codes, such as `202` or
+`304`. Error status maps accept concrete `4xx` and `5xx` status codes, such as
+`400` or `409`. Do not use range keys such as `2xx`, `4xx`, or `5xx`.
 
 Handle specific errors instead of broad `Error` checks when behavior differs:
 
@@ -38,6 +41,7 @@ try {
   return await api
     .get('/users/:id', { pathParams: { id } })
     .contract(UserSchema)
+    .data()
 } catch (error) {
   if (error instanceof HttpError && error.status === 404) {
     return null
